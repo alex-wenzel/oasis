@@ -10,8 +10,25 @@
   font-size: 16px;
 }
 
-a:link, a:visited {
+/* a:link, a:visited {
   color: white;
   background-color: transparent;
   text-decoration: underline;
+} */
+
+ ul {
+  list-style-type: none;
+  text-align: left;
+ }
+
+ li {
+   color: white;
+ }
+
+ .box a {
+  font-size: 18px;
+  line-height: 26px;
+  text-decoration: underline;
+  color: white;
+  display: block;
 }

@@ -122,9 +122,22 @@ function Dashboard(props) {
     </>
   );
 
+  const handleResources = (event) => {
+    event.preventDefault();
+    props.history.push(paths.resources);
+  };
+  const allresources = () => (
+    <>
+      <Link onClick={handleResources} href="">
+        Additional resources
+      </Link>
+    </>
+  );
+
   const informationHeader = () => (
     <div className={classNames(styles.box, styles.top, styles.header)}>
       {resources()}
+      {allresources()}
       {userStatus()}
       {latestUpdate()}
     </div>
