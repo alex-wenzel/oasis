@@ -12,6 +12,7 @@ from auth.main import NotFoundException
 
 import sqlalchemy
 from NytLiveCounty import crud
+import asyncio
 
 
 async def homepage(request, exec):
@@ -55,9 +56,14 @@ engine = sqlalchemy.create_engine(SQLALCHEMY_DATABASE_URL)
 Session = sqlalchemy.orm.sessionmaker(
     autocommit=False, autoflush=False, bind=engine
 )
-db = Session()
 
-crud.seed(db)
+@app.on_event("startup")
+async def seed_db():
+    asyncio.ensure_future(crud.seed())
+
+#db = Session()
+
+#crud.seed(db)
 
 # db.close()
 
