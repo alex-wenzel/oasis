@@ -3,6 +3,8 @@ setup:
     -
       as: DATABASE
       plan: heroku-postgresql
+#  command:
+#    - alembic upgrade head
 build:
   docker:
     db: backend/Dockerfile.db

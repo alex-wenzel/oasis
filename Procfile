@@ -1,1 +1,1 @@
-web: bash build.sh
+web: bash -c "uvicorn app:app --reload"
