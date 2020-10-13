@@ -1,25 +1,26 @@
 setup:
-  addons:
-    - plan: heroku-postgresql
-      as: DATABASE
+    addons:
+        - plan: heroku-postgresql
+        as: DATABASE
 #  config:
 #    S3_BUCKET: my-example-bucket
 build:
-  docker:
-    web: Dockerfile.web
+    docker:
+        web: Dockerfile.web
 #    worker: worker/Dockerfile
-    db: backend/Dockerfile.db
+        db: backend/Dockerfile.db
 #  config:
 #    RAILS_ENV: development
 #    FOO: bar
 release:
-  command:
-    - ./dev-setup.sh
-  image: web
+    command:
+        - ./dev-setup.sh
+    image: web
 run:
-  web: python app.py
+    web:
+        command: python app.py
 #  db: python init_db.py
-  image: web
+        image: web
 #  asset-syncer:
 #    command:
 #      - python asset-syncer.py
