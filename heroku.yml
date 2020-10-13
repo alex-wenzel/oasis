@@ -11,6 +11,11 @@ build:
 #  command:
 #    - ./dev-setup.sh
 #  image: web
+release:
+  command:
+    - python init_db.py
+  image: web
+
 run:
   web:
     command:

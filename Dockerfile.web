@@ -14,7 +14,7 @@ COPY --from=frontend /app/build/ /app/static/
 RUN mv /app/static/static/* /app/static/
 COPY --from=frontend /app/build/index.html /app/templates/
 ENV APP_MODULE="app:app"
-ENV DATABASE_HOST="db"
+ENV DATABASE_HOST="mysql://be587755689676:2085e2b4@us-cdbr-east-02.cleardb.com/heroku_2169054eeeb535f?reconnect=true"
 ENV DATABASE_NAME="covid"
 ENV DATABASE_USER="root"
 ENV DATABASE_PASSWORD=""
