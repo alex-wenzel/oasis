@@ -13,5 +13,6 @@ release:
   image: web
 run:
   web:
-    command: "python app.py"
+    command:
+      - python app.py
     image: web
