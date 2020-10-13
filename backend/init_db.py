@@ -1,7 +1,8 @@
 import sqlalchemy
 import os
 
-databases_to_create = ["dbtest", os.environ["DATABASE_NAME"]]
+#databases_to_create = ["dbtest", os.environ["DATABASE_NAME"]]
+databases_to_create = [os.environ["DATABASE_NAME"]]
 
 engine = sqlalchemy.create_engine(
     f"mysql+pymysql://{os.environ['DATABASE_USER']}"
