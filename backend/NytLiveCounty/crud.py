@@ -109,8 +109,13 @@ def add_data(db: Session, path: str, commit_hex: str):
     df = pd.read_csv(path, dtype=str)
     df = df[df["fips"].notna()]
 
+    new_recs = []
+
     for indx, row in df.iterrows():
-        db.add(build_new_db_row(row, now, commit_hex))
+        #db.add(build_new_db_row(row, now, commit_hex))
+        new_recs.append(build_new_db_row(row, now, commit_hex))
+
+    db.bulk_save_objects(new_recs)
 
 
 def seed(db: Session = Depends(get_db), fake_date=None):
@@ -205,8 +210,10 @@ async def update(db: Session):
         # Load data
         df = pd.read_csv("covid-19-data/live/us-counties.csv", dtype=str)
 
-        for indx, row in df.iterrows():
-            db.add(build_new_db_row(row, now, cmt_hex))
+        #for indx, row in df.iterrows():
+            #db.add(build_new_db_row(row, now, cmt_hex))
+        add_data(db, "covid-19-data/live/us-counties.csv", cmt_hex)
+
 
         db.commit()
 
