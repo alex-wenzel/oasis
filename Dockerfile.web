@@ -14,3 +14,11 @@ COPY --from=frontend /app/build/ /app/static/
 RUN mv /app/static/static/* /app/static/
 COPY --from=frontend /app/build/index.html /app/templates/
 ENV APP_MODULE="app:app"
+ENV DATABASE_HOST="db"
+ENV DATABASE_NAME="covid"
+ENV DATABASE_USER="root"
+ENV DATABASE_PASSWORD=""
+ENV PEPPER="56UpUXF8lF"
+ENV DEV="True"
+ENV JWT_SECRET="eXqByNjF4w8O3TvR2NZm8qQTG0tVe5yR"
+ENV COOKIE_EXPIRATION_SECONDS="86400"
