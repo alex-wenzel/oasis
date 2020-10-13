@@ -7,10 +7,10 @@ build:
   docker:
     db: backend/Dockerfile.db
     web: Dockerfile.web
-release:
-  command:
-    - ./dev-setup.sh
-  image: web
+#release:
+#  command:
+#    - ./dev-setup.sh
+#  image: web
 run:
   web:
     command:
