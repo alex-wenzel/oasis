@@ -21,5 +21,5 @@ release:
 run:
   web:
     command:
-      - python app.py
+      - bash -c "uvicorn app:app --reload"
     image: web
